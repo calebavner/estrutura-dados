@@ -3,64 +3,66 @@ package org.midasvision.fila;
 public class MidasQueue {
 
     private int tamanho;
-    private int base;
     private int[] fila;
+    private int comecoFila;
+    private int fimFila;
 
     public MidasQueue(int tamanho) {
         this.tamanho = tamanho;
         this.fila = new int[tamanho];
-        this.base = this.fila.length;
-    }
-
-    public int qtdElementos() {
-        return this.fila.length - this.base;
-    }
-
-    public int tamanhoPilha() {
-        return this.tamanho;
+        this.comecoFila = this.fila.length;
+        this.fimFila = this.fila.length - 1;
     }
 
     public boolean isFull() {
-        return this.base == 0;
+        return this.comecoFila == 0;
     }
 
     public boolean isEmpty() {
         return this.qtdElementos() == 0;
     }
 
+    public int capacidadeFila() {
+        return this.tamanho;
+    }
+
+    public int qtdElementos() {
+        return capacidadeFila() - comecoFila;
+    }
+
     public boolean adicionar(int e) {
 
         if(this.isFull()) {
-            System.out.println("A fila não comporta mais elementos");
+            System.out.println("Não e possivel adicionar elementos, a fila esta cheia");
             return false;
         }
 
-        base--;
-        fila[base] = e;
+        comecoFila--;
+        this.fila[comecoFila] = e;
         return true;
     }
 
     public boolean remover() {
 
         if(this.isEmpty()) {
-            System.out.println("Não existem elementos a serem removidos");
+            System.out.println("Não e possivel remover elementos, a fila esta vazia");
             return false;
         }
 
-        base++;
+        fimFila--;
         return true;
     }
 
     public String imprimir() {
 
+        if(this.isEmpty())
+            return "A fila esta vazia";
+
         StringBuilder s = new StringBuilder();
 
-        if(this.isEmpty()) {
-            return "A pilha esta vazia";
+        for(int i = comecoFila; i <= fimFila; i++) {
+            s.append(fila[i] + " ");
         }
-
-        for(int i = base; i <= this.fila.length - 1; i++)
-            s.append(this.fila[i] + " ");
 
         return s.toString();
     }
