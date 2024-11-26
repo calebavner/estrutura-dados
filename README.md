@@ -9,13 +9,13 @@
 
 </p>
 
-Implementações das Estruturas de dados classicas.
+Estudo dos tipos abstratos de dados (TAD) classicos.
 
 
 ## :rocket: Tecnologias utilizadas
 
 * Java
-*   
+    
 :mag: Clone o projeto e teste na prática.
 
 Developed by Avner Caleb
