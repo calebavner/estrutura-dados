@@ -6,6 +6,8 @@ public class MidasListaEncadeadaMain {
         MidasListaEncadeada<Integer> lista = new MidasListaEncadeada<>();
         lista.adicionar(10);
         lista.adicionar(20);
+        lista.adicionar(30);
+        lista.adicionar(40);
 
 
         System.out.println(lista.toString());

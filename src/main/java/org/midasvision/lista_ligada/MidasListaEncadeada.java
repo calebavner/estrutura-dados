@@ -19,20 +19,34 @@ public class MidasListaEncadeada<T> {
         tamanho++;
     }
 
-    public void adicionarNoFim(T valor) {
-
-    }
-
-
     public int tamanho() {
         return this.tamanho;
     }
 
     @Override
     public String toString() {
-        return "MidasListaEncadeada{" +
-                "inicio=" + inicio +
-                ", tamanho=" + tamanho +
-                '}';
+
+        if(this.tamanho == 0) {
+            return "[]";
+        }
+
+        StringBuilder s = new StringBuilder("[");
+        No<T> atual = this.inicio;
+
+        //s.append("[" + atual.getValor() + ", ");
+
+        for(int i = 0; i < this.tamanho - 1; i++) {
+            s.append(atual.getValor()).append(", ");
+            atual = atual.getProximo();
+        }
+        s.append(atual.getValor()).append("]");
+
+
+        /*while(atual.getProximo() != null) {
+            atual = atual.getProximo();
+            s.append(atual.getValor());
+        }*/
+
+        return s.toString();
     }
 }
