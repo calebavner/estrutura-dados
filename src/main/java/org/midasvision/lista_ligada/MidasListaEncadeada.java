@@ -19,6 +19,19 @@ public class MidasListaEncadeada<T> {
         tamanho++;
     }
 
+    public void limparLista() {
+        for(No<T> atual = this.inicio; atual != null;) {
+            No<T> proximo = atual.getProximo();
+            atual.setValor(null);
+            atual.setProximo(null);
+            atual = proximo;
+        }
+
+        this.inicio = null;
+        this.fim = null;
+        this.tamanho = 0;
+    }
+
     public int tamanho() {
         return this.tamanho;
     }
