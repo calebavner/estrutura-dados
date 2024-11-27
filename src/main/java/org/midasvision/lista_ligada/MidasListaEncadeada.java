@@ -8,14 +8,14 @@ public class MidasListaEncadeada<T> {
 
 
     public void adicionar(T valor) {
-        var n = new No<>(valor);
+        var elemento = new No<>(valor);
 
         if(this.tamanho == 0) {
-            this.inicio = n;
+            this.inicio = elemento;
         } else {
-            this.fim.setProximo(n);
+            this.fim.setProximo(elemento);
         }
-        this.fim = n;
+        this.fim = elemento;
         tamanho++;
     }
 
@@ -35,7 +35,7 @@ public class MidasListaEncadeada<T> {
 
         //s.append("[" + atual.getValor() + ", ");
 
-        for(int i = 0; i < this.tamanho - 1; i++) {
+        for(int i = 0; i < this.tamanho() - 1; i++) {
             s.append(atual.getValor()).append(", ");
             atual = atual.getProximo();
         }
