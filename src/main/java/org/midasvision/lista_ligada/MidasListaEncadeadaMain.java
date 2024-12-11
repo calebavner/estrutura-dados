@@ -9,6 +9,7 @@ public class MidasListaEncadeadaMain {
         lista.adicionar(30);
         lista.adicionar(40);
 
-        System.out.println(lista.toString());
+        System.out.println(lista.retornaPosicao(50));
+        System.out.println(lista.buscar(3));
     }
 }
